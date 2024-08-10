@@ -40,10 +40,7 @@ export default {
 
 				// 在这里您可以处理文件内容，例如返回给客户端或进行其他操作
 				return new Response(content, {
-					status: 200,
-					headers: {
-						'Content-Type': 'text/plain; charset=UTF-8',
-					},
+					status: 200
 				});
 			} else {
 				const errorText = env.ERROR || '无法获取文件，检查路径或TOKEN是否正确。';
