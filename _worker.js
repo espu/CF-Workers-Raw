@@ -35,6 +35,11 @@ export default {
 
 			// 检查请求是否成功 (状态码 200 到 299)
 			if (response.ok) {
+				const contentType = response.headers.get('Content-Type') || 'text/plain';
+				const headers = new Headers(response.headers);
+				headers.set('Content-Disposition', 'inline');
+				headers.set('Content-Type', contentType);
+				
 				return new Response(response.body, {
 					status: response.status,
 					headers: response.headers
